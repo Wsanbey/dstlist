@@ -1,0 +1,334 @@
+[33mcommit edf4d8274d469f2c31a04b9d50c4cf38b87e7c23[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Wsanbey <welrysanbey@hotmail.com>
+Date:   Mon May 6 17:21:46 2024 -0300
+
+    Inicializando projeto
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..549e00a[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,33 @@[m
+[32m+[m[32mHELP.md[m
+[32m+[m[32mtarget/[m
+[32m+[m[32m!.mvn/wrapper/maven-wrapper.jar[m
+[32m+[m[32m!**/src/main/**/target/[m
+[32m+[m[32m!**/src/test/**/target/[m
+[32m+[m
+[32m+[m[32m### STS ###[m
+[32m+[m[32m.apt_generated[m
+[32m+[m[32m.classpath[m
+[32m+[m[32m.factorypath[m
+[32m+[m[32m.project[m
+[32m+[m[32m.settings[m
+[32m+[m[32m.springBeans[m
+[32m+[m[32m.sts4-cache[m
+[32m+[m
+[32m+[m[32m### IntelliJ IDEA ###[m
+[32m+[m[32m.idea[m
+[32m+[m[32m*.iws[m
+[32m+[m[32m*.iml[m
+[32m+[m[32m*.ipr[m
+[32m+[m
+[32m+[m[32m### NetBeans ###[m
+[32m+[m[32m/nbproject/private/[m
+[32m+[m[32m/nbbuild/[m
+[32m+[m[32m/dist/[m
+[32m+[m[32m/nbdist/[m
+[32m+[m[32m/.nb-gradle/[m
+[32m+[m[32mbuild/[m
+[32m+[m[32m!**/src/main/**/build/[m
+[32m+[m[32m!**/src/test/**/build/[m
+[32m+[m
+[32m+[m[32m### VS Code ###[m
+[32m+[m[32m.vscode/[m
+[1mdiff --git a/.mvn/wrapper/maven-wrapper.jar b/.mvn/wrapper/maven-wrapper.jar[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cb28b0e[m
+Binary files /dev/null and b/.mvn/wrapper/maven-wrapper.jar differ
+[1mdiff --git a/.mvn/wrapper/maven-wrapper.properties b/.mvn/wrapper/maven-wrapper.properties[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e70e7bc[m
+[1m--- /dev/null[m
+[1m+++ b/.mvn/wrapper/maven-wrapper.properties[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32mdistributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip[m
+[32m+[m[32mwrapperUrl=https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar[m
+[1mdiff --git a/mvnw b/mvnw[m
+[1mnew file mode 100644[m
+[1mindex 0000000..66df285[m
+[1m--- /dev/null[m
+[1m+++ b/mvnw[m
+[36m@@ -0,0 +1,308 @@[m
+[32m+[m[32m#!/bin/sh[m
+[32m+[m[32m# ----------------------------------------------------------------------------[m
+[32m+[m[32m# Licensed to the Apache Software Foundation (ASF) under one[m
+[32m+[m[32m# or more contributor license agreements.  See the NOTICE file[m
+[32m+[m[32m# distributed with this work for additional information[m
+[32m+[m[32m# regarding copyright ownership.  The ASF licenses this file[m
+[32m+[m[32m# to you under the Apache License, Version 2.0 (the[m
+[32m+[m[32m# "License"); you may not use this file except in compliance[m
+[32m+[m[32m# with the License.  You may obtain a copy of the License at[m
+[32m+[m[32m#[m
+[32m+[m[32m#    https://www.apache.org/licenses/LICENSE-2.0[m
+[32m+[m[32m#[m
+[32m+[m[32m# Unless required by applicable law or agreed to in writing,[m
+[32m+[m[32m# software distributed under the License is distributed on an[m
+[32m+[m[32m# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY[m
+[32m+[m[32m# KIND, either express or implied.  See the License for the[m
+[32m+[m[32m# specific language governing permissions and limitations[m
+[32m+[m[32m# under the License.[m
+[32m+[m[32m# ----------------------------------------------------------------------------[m
+[32m+[m
+[32m+[m[32m# ----------------------------------------------------------------------------[m
+[32m+[m[32m# Apache Maven Wrapper startup batch script, version 3.2.0[m
+[32m+[m[32m#[m
+[32m+[m[32m# Required ENV vars:[m
+[32m+[m[32m# ------------------[m
+[32m+[m[32m#   JAVA_HOME - location of a JDK home dir[m
+[32m+[m[32m#[m
+[32m+[m[32m# Optional ENV vars[m
+[32m+[m[32m# -----------------[m
+[32m+[m[32m#   MAVEN_OPTS - parameters passed to the Java VM when running Maven[m
+[32m+[m[32m#     e.g. to debug Maven itself, use[m
+[32m+[m[32m#       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000[m
+[32m+[m[32m#   MAVEN_SKIP_RC - flag to disable loading of mavenrc files[m
+[32m+[m[32m# ----------------------------------------------------------------------------[m
+[32m+[m
+[32m+[m[32mif [ -z "$MAVEN_SKIP_RC" ] ; then[m
+[32m+[m
+[32m+[m[32m  if [ -f /usr/local/etc/mavenrc ] ; then[m
+[32m+[m[32m    . /usr/local/etc/mavenrc[m
+[32m+[m[32m  fi[m
+[32m+[m
+[32m+[m[32m  if [ -f /etc/mavenrc ] ; then[m
+[32m+[m[32m    . /etc/mavenrc[m
+[32m+[m[32m  fi[m
+[32m+[m
+[32m+[m[32m  if [ -f "$HOME/.mavenrc" ] ; then[m
+[32m+[m[32m    . "$HOME/.mavenrc"[m
+[32m+[m[32m  fi[m
+[32m+[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# OS specific support.  $var _must_ be set to either true or false.[m
+[32m+[m[32mcygwin=false;[m
+[32m+[m[32mdarwin=false;[m
+[32m+[m[32mmingw=false[m
+[32m+[m[32mcase "$(uname)" in[m
+[32m+[m[32m  CYGWIN*) cygwin=true ;;[m
+[32m+[m[32m  MINGW*) mingw=true;;[m
+[32m+[m[32m  Darwin*) darwin=true[m
+[32m+[m[32m    # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home[m
+[32m+[m[32m    # See https://developer.apple.com/library/mac/qa/qa1170/_index.html[m
+[32m+[m[32m    if [ -z "$JAVA_HOME" ]; then[m
+[32m+[m[32m      if [ -x "/usr/libexec/java_home" ]; then[m
+[32m+[m[32m        JAVA_HOME="$(/usr/libexec/java_home)"; export JAVA_HOME[m
+[32m+[m[32m      else[m
+[32m+[m[32m        JAVA_HOME="/Library/Java/Home"; export JAVA_HOME[m
+[32m+[m[32m      fi[m
+[32m+[m[32m    fi[m
+[32m+[m[32m    ;;[m
+[32m+[m[32mesac[m
+[32m+[m
+[32m+[m[32mif [ -z "$JAVA_HOME" ] ; then[m
+[32m+[m[32m  if [ -r /etc/gentoo-release ] ; then[m
+[32m+[m[32m    JAVA_HOME=$(java-config --jre-home)[m
+[32m+[m[32m  fi[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# For Cygwin, ensure paths are in UNIX format before anything is touched[m
+[32m+[m[32mif $cygwin ; then[m
+[32m+[m[32m  [ -n "$JAVA_HOME" ] &&[m
+[32m+[m[32m    JAVA_HOME=$(cygpath --unix "$JAVA_HOME")[m
+[32m+[m[32m  [ -n "$CLASSPATH" ] &&[m
+[32m+[m[32m    CLASSPATH=$(cygpath --path --unix "$CLASSPATH")[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# For Mingw, ensure paths are in UNIX format before anything is touched[m
+[32m+[m[32mif $mingw ; then[m
+[32m+[m[32m  [ -n "$JAVA_HOME" ] && [ -d "$JAVA_HOME" ] &&[m
+[32m+[m[32m    JAVA_HOME="$(cd "$JAVA_HOME" || (echo "cannot cd into $JAVA_HOME."; exit 1); pwd)"[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32mif [ -z "$JAVA_HOME" ]; then[m
+[32m+[m[32m  javaExecutable="$(which javac)"[m
+[32m+[m[32m  if [ -n "$javaExecutable" ] && ! [ "$(expr "\"$javaExecutable\"" : '\([^ ]*\)')" = "no" ]; then[m
+[32m+[m[32m    # readlink(1) is not available as standard on Solaris 10.[m
+[32m+[m[32m    readLink=$(which readlink)[m
+[32m+[m[32m    if [ ! "$(expr "$readLink" : '\([^ ]*\)')" = "no" ]; then[m
+[32m+[m[32m      if $darwin ; then[m
+[32m+[m[32m        javaHome="$(dirname "\"$javaExecutable\"")"[m
+[32m+[m[32m        javaExecutable="$(cd "\"$javaHome\"" && pwd -P)/javac"[m
+[32m+[m[32m      else[m
+[32m+[m[32m        javaExecutable="$(readlink -f "\"$javaExecutable\"")"[m
+[32m+[m[32m      fi[m
+[32m+[m[32m      javaHome="$(dirname "\"$javaExecutable\"")"[m
+[32m+[m[32m      javaHome=$(expr "$javaHome" : '\(.*\)/bin')[m
+[32m+[m[32m      JAVA_HOME="$javaHome"[m
+[32m+[m[32m      export JAVA_HOME[m
+[32m+[m[32m    fi[m
+[32m+[m[32m  fi[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32mif [ -z "$JAVACMD" ] ; then[m
+[32m+[m[32m  if [ -n "$JAVA_HOME"  ] ; then[m
+[32m+[m[32m    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then[m
+[32m+[m[32m      # IBM's JDK on AIX uses strange locations for the executables[m
+[32m+[m[32m      JAVACMD="$JAVA_HOME/jre/sh/java"[m
+[32m+[m[32m    else[m
+[32m+[m[32m      JAVACMD="$JAVA_HOME/bin/java"[m
+[32m+[m[32m    fi[m
+[32m+[m[32m  else[m
+[32m+[m[32m    JAVACMD="$(\unset -f command 2>/dev/null; \command -v java)"[m
+[32m+[m[32m  fi[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32mif [ ! -x "$JAVACMD" ] ; then[m
+[32m+[m[32m  echo "Error: JAVA_HOME is not defined correctly." >&2[m
+[32m+[m[32m  echo "  We cannot execute $JAVACMD" >&2[m
+[32m+[m[32m  exit 1[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32mif [ -z "$JAVA_HOME" ] ; then[m
+[32m+[m[32m  echo "Warning: JAVA_HOME environment variable is not set."[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32m# traverses directory structure from process work directory to filesystem root[m
+[32m+[m[32m# first directory with .mvn subdirectory is considered project base directory[m
+[32m+[m[32mfind_maven_basedir() {[m
+[32m+[m[32m  if [ -z "$1" ][m
+[32m+[m[32m  then[m
+[32m+[m[32m    echo "Path not specified to find_maven_basedir"[m
+[32m+[m[32m    return 1[m
+[32m+[m[32m  fi[m
+[32m+[m
+[32m+[m[32m  basedir="$1"[m
+[32m+[m[32m  wdir="$1"[m
+[32m+[m[32m  while [ "$wdir" != '/' ] ; do[m
+[32m+[m[32m    if [ -d "$wdir"/.mvn ] ; then[m
+[32m+[m[32m      basedir=$wdir[m
+[32m+[m[32m      break[m
+[32m+[m[32m    fi[m
+[32m+[m[32m    # workaround for JBEAP-8937 (on Solaris 10/Sparc)[m
+[32m+[m[32m    if [ -d "${wdir}" ]; then[m
+[32m+[m[32m      wdir=$(cd "$wdir/.." || exit 1; pwd)[m
+[32m+[m[32m    fi[m
+[32m+[m[32m    # end of workaround[m
+[32m+[m[32m  done[m
+[32m+[m[32m  printf '%s' "$(cd "$basedir" || exit 1; pwd)"[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m# concatenates all lines of a file[m
+[32m+[m[32mconcat_lines() {[m
+[32m+[m[32m  if [ -f "$1" ]; then[m
+[32m+[m[32m    # Remove \r in case we run on Windows within Git Bash[m
+[32m+[m[32m    # and check out the repository with auto CRLF management[m
+[32m+[m[32m    # enabled. Otherwise, we may read lines that are delimited with[m
+[32m+[m[32m    # \r\n and produce $'-Xarg\r' rather than -Xarg due to word[m
+[32m+[m[32m    # splitting rules.[m
+[32m+[m[32m    tr -s '\r\n' ' ' < "$1"[m
+[32m+[m[32m  fi[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mlog() {[m
+[32m+[m[32m  if [ "$MVNW_VERBOSE" = true ]; then[m
+[32m+[m[32m    printf '%s\n' "$1"[m
+[32m+[m[32m  fi[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mBASE_DIR=$(find_maven_basedir "$(dirname "$0")")[m
+[32m+[m[32mif [ -z "$BASE_DIR" ]; then[m
+[32m+[m[32m  exit 1;[m
+[32m+[m[32mfi[m
+[32m+[m
+[32m+[m[32mMAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}; export MAVEN_PROJECTBASEDIR[m
+[32m+[m[32mlog "$MAVEN_PROJECTBASEDIR"[m
+[32m+[m
+[32m+[m[32m##########################################################################################[m
+[32m+[m[32m# Extension to allow automatically downloading the maven-wrapper.jar from Maven-central[m
+[32m+[m[32m# This allows using the maven wrapper in projects that prohibit checking in binary data.[m
+[32m+[m[32m##########################################################################################[m
+[32m+[m[32mwrapperJarPath="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"[m
+[32m+[m[32mif [ -r "$wrapperJarPath" ]; then[m
+[32m+[m[32m    log "Found $wrapperJarPath"[m
+[32m+[m[32melse[m
+[32m+[m[32m    log "Couldn't find $wrapperJarPath, downloading it ..."[m
+[32m+[m
+[32m+[m[32m    if [ -n "$MVNW_REPOURL" ]; then[m
+[32m+[m[32m      wrapperUrl="$MVNW_REPOURL/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"[m
+[32m+[m[32m    else[m
+[32m+[m[32m      wrapperUrl="https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"[m
+[32m+[m[32m    fi[m
+[32m+[m[32m    while IFS="=" read -r key value; do[m
+[32m+[m[32m      # Remove '\r' from value to allow usage on windows as IFS does not consider '\r' as a separator ( considers space, tab, new line ('\n'), and custom '=' )[m
+[32m+[m[32m      safeValue=$(echo "$value" | tr -d '\r')[m
+[32m+[m[32m      case "$key" in (wrapperUrl) wrapperUrl="$safeValue"; break ;;[m
+[32m+[m[32m      esac[m
+[32m+[m[32m    done < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"[m
+[32m+[m[32m    log "Downloading from: $wrapperUrl"[m
+[32m+[m
+[32m+[m[32m    if $cygwin; then[m
+[32m+[m[32m      wrapperJarPath=$(cygpath --path --windows "$wrapperJarPath")[m
+[32m+[m[32m    fi[m
+[32m+[m
+[32m+[m[32m    if command -v wget > /dev/null; then[m
+[32m+[m[32m        log "Found wget ... using wget"[m
+[32m+[m[32m        [ "$MVNW_VERBOSE" = true ] && QUIET="" || QUIET="--quiet"[m
+[32m+[m[32m        if [ -z "$MVNW_USERNAME" ] || [ -z "$MVNW_PASSWORD" ]; then[m
+[32m+[m[32m            wget $QUIET "$wrapperUrl" -O "$wrapperJarPath" || rm -f "$wrapperJarPath"[m
+[32m+[m[32m        else[m
+[32m+[m[32m            wget $QUIET --http-user="$MVNW_USERNAME" --http-password="$MVNW_PASSWORD" "$wrapperUrl" -O "$wrapperJarPath" || rm -f "$wrapperJarPath"[m
+[32m+[m[32m        fi[m
+[32m+[m[32m    elif command -v curl > /dev/null; then[m
+[32m+[m[32m        log "Found curl ... using curl"[m
+[32m+[m[32m        [ "$MVNW_VERBOSE" = true ] && QUIET="" || QUIET="--silent"[m
+[32m+[m[32m        if [ -z "$MVNW_USERNAME" ] || [ -z "$MVNW_PASSWORD" ]; then[m
+[32m+[m[32m            curl $QUIET -o "$wrapperJarPath" "$wrapperUrl" -f -L || rm -f "$wrapperJarPath"[m
+[32m+[m[32m        else[m
+[32m+[m[32m            curl $QUIET --user "$MVNW_USERNAME:$MVNW_PASSWORD" -o "$wrapperJarPath" "$wrapperUrl" -f -L || rm -f "$wrapperJarPath"[m
+[32m+[m[32m        fi[m
+[32m+[m[32m    else[m
+[32m+[m[32m        log "Falling back to using Java to download"[m
+[32m+[m[32m        javaSource="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/MavenWrapperDownloader.java"[m
+[32m+[m[32m        javaClass="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/MavenWrapperDownloader.class"[m
+[32m+[m[32m        # For Cygwin, switch paths to Windows format before running javac[m
+[32m+[m[32m        if $cygwin; then[m
+[32m+[m[32m          javaSource=$(cygpath --path --windows "$javaSource")[m
+[32m+[m[32m          javaClass=$(cygpath --path --windows "$javaClass")[m
+[32m+[m[32m        fi[m
+[32m+[m[32m        if [ -e "$javaSource" ]; then[m
+[32m+[m[32m            if [ ! -e "$javaClass" ]; then[m
+[32m+[m[32m                log " - Compiling MavenWrapperDownloader.java ..."[m
+[32m+[m[32m                ("$JAVA_HOME/bin/javac" "$javaSource")[m
+[32m+[m[32m            fi[m
+[32m+[m[32m            if [ -e "$javaClass" ]; then[m
+[32m+[m[32m                log " - Running MavenWrapperDownloader.java ..."[m
+[32m+[m[32m                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"[m
+[32m+[m[32m            fi[m
+[32m+[m[32m        fi[m
+[32m+[m[32m    fi[m
+[32m+[m[32mfi[m
+[32m+[m[32m##########################################################################################[m
+[32m+[m[32m# End of extension[m
+[32m+[m[32m##########################################################################################[m
+[32m+[m
+[32m+[m[32m# If specified, validate the SHA-256 sum of the Maven wrapper jar file[m
+[32m+[m[32mwrapperSha256Sum=""[m
+[32m+[m[32mwhile IFS="=" read -r key value; do[m
+[32m+[m[32m  case "$key" in (wrapperSha256Sum) wrapperSha256Sum=$value; break ;;[m
+[32m+[m[32m  esac[m
+[32m+[m[32mdone < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"[m
+[32m+[m[32mif [ -n "$wrapperSha256Sum" ]; then[m
+[32m+[m[32m  wrapperSha256Result=false[m
+[32m+[m[32m  if command -v sha256sum > /dev/null; then[m
+[32m+[m[32m    if echo "$wrapperSha256Sum  $wrapperJarPath" | sha256sum -c > /dev/null 2>&1; then[m
+[32m+[m[32m      wrapperSha256Result=true[m
+[32m+[m[32m    fi[m
+[32m+[m[32m  elif command -v shasum > /dev/null; then[m
+[32m+[m[32m    if echo "$wrapperSha256Sum  $wrapperJarPath" | shasum -a 256 -c > /dev/null 2>&1; then[m
+[32m+[m[32m      wrapperSha256Result=true[m
+[32m+[m[32m    fi[m
+[32m+[m[32m  else[m
+[32m+[m[32m    echo "Checksum validation was 
