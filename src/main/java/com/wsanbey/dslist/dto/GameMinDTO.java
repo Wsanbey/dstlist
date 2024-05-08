@@ -1,14 +1,9 @@
 package com.wsanbey.dslist.dto;
 
 import com.wsanbey.dslist.entities.Game;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 public class GameMinDTO
 {
-
     private Long id;
     private String title;
     private int year;
