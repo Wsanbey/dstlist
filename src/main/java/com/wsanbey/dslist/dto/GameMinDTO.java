@@ -1,6 +1,7 @@
 package com.wsanbey.dslist.dto;
 
 import com.wsanbey.dslist.entities.Game;
+import com.wsanbey.dslist.projection.GameMinProjection;
 
 public class GameMinDTO
 {
@@ -19,6 +20,14 @@ public class GameMinDTO
         year = entities.getYear();
         imgUrl = entities.getImgUrl();
         shortDescription = entities.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
